@@ -1,7 +1,7 @@
 ﻿// Mystify
 string mensagemBoasVindas = "Boas vindas ao Mystify!";
 
-void ExibirMensagemBoasVindas()
+void ExibirLogo()
 {
     Console.WriteLine(@"
 
@@ -14,6 +14,7 @@ void ExibirMensagemBoasVindas()
 
 void exibirOpcoesMenu()
 {
+    ExibirLogo();
     Console.WriteLine("\nDigite [1] para registrar uma banda");
     Console.WriteLine("Digite [2] para mostrar todas as bandas");
     Console.WriteLine("Digite [3] para avaliar uma banda");
@@ -26,7 +27,7 @@ void exibirOpcoesMenu()
 
     switch (opcaoEscolhidaInt)
     {
-        case 1: Console.WriteLine("Você escolheu a opção " + opcaoEscolhidaInt); 
+        case 1: registrarBanda(); 
             break;
         case 2:
             Console.WriteLine("Você escolheu a opção " + opcaoEscolhidaInt);
@@ -46,5 +47,16 @@ void exibirOpcoesMenu()
     }
 }
 
-ExibirMensagemBoasVindas();
+void registrarBanda()
+{
+    Console.Clear();
+    Console.WriteLine("Registro de bandas");
+    Console.Write("Digite o nome da banda que deseja registrar: ");
+    string nomeBanda = Console.ReadLine();
+    Console.WriteLine($"A banda {nomeBanda} foi registrada com sucesso!");
+    Thread.Sleep(2000);
+    Console.Clear();
+    exibirOpcoesMenu();
+}
+
 exibirOpcoesMenu();
