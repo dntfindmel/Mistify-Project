@@ -1,5 +1,6 @@
 ﻿// Mystify
 string mensagemBoasVindas = "Boas vindas ao Mystify!";
+List<string> listaBandas = new List<string> { "Twenty One Pilots"};
 
 void ExibirLogo()
 {
@@ -29,8 +30,7 @@ void exibirOpcoesMenu()
     {
         case 1: registrarBanda(); 
             break;
-        case 2:
-            Console.WriteLine("Você escolheu a opção " + opcaoEscolhidaInt);
+        case 2: mostrarBandas();
             break;
         case 3:
             Console.WriteLine("Você escolheu a opção " + opcaoEscolhidaInt);
@@ -50,12 +50,34 @@ void exibirOpcoesMenu()
 void registrarBanda()
 {
     Console.Clear();
+    Console.WriteLine("******************");
     Console.WriteLine("Registro de bandas");
-    Console.Write("Digite o nome da banda que deseja registrar: ");
-    string nomeBanda = Console.ReadLine();
+    Console.WriteLine("******************");
+    Console.Write("\nDigite o nome da banda que deseja registrar: ");
+    string nomeBanda = Console.ReadLine()!;
+    listaBandas.Add(nomeBanda);
     Console.WriteLine($"A banda {nomeBanda} foi registrada com sucesso!");
     Thread.Sleep(2000);
     Console.Clear();
+    exibirOpcoesMenu();
+}
+
+void mostrarBandas()
+{
+    Console.Clear();
+    Console.WriteLine("***************************");
+    Console.WriteLine("Exibindo bandas registradas");
+    Console.WriteLine("***************************");
+
+    foreach(string banda in listaBandas)
+    {
+        Console.WriteLine($"Banda: {banda}");
+    }
+
+    Console.WriteLine("\nClique em qualquer tecla para voltar ao menu.");
+    Console.ReadKey();
+    Console.Clear();
+
     exibirOpcoesMenu();
 }
 
